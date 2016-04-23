@@ -9,4 +9,4 @@ addons:
 
 script:
  - xbuild /p:Configuration=Release Prismatic.sln
- - nunit-console ./Prismatic.Test/bin/Debug/Prismatic.Test.dll
+ - nunit-console ./Prismatic.Test/bin/Release/Prismatic.Test.dll
