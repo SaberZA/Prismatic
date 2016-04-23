@@ -29,7 +29,7 @@ namespace Prismatic.Test.Serialiser
         {
             //---------------Set up test pack-------------------
             var serialiser = new PrismaticJsonSerialiser();
-            var stringReader = new StreamReader(@"Serialiser\test.json");
+            var stringReader = new StreamReader(@"test.json");
             var document = stringReader.ReadToEnd();
             //---------------Assert Precondition----------------
             Assert.IsTrue(document.Length > 0);
@@ -46,7 +46,7 @@ namespace Prismatic.Test.Serialiser
         {
             //---------------Set up test pack-------------------
             var serialiser = new PrismaticJsonSerialiser();
-            var document = GetFile(@"Serialiser\build.json");
+            var document = GetFile(@"build.json");
             //---------------Assert Precondition----------------
 
             //---------------Execute Test ----------------------
@@ -62,7 +62,7 @@ namespace Prismatic.Test.Serialiser
         {
             //---------------Set up test pack-------------------
             var serialiser = new PrismaticJsonSerialiser();
-            var document = GetFile(@"Serialiser\build.json");
+            var document = GetFile(@"build.json");
             var buildConfig = serialiser.Deserialise<DefaultBuildConfig>(document);
             //---------------Assert Precondition----------------
 
@@ -91,7 +91,7 @@ namespace Prismatic.Test.Serialiser
         {
             //---------------Set up test pack-------------------
             var serialiser = new PrismaticJsonSerialiser();
-            var document = GetFile(@"Serialiser\build.json");
+            var document = GetFile(@"build.json");
             var buildConfig = serialiser.Deserialise<DefaultBuildConfig>(document);
             //---------------Assert Precondition----------------
 
