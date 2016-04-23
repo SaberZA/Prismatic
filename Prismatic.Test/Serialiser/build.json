@@ -1,0 +1,14 @@
+﻿{
+  "language" : "csharp",
+  "solution" : "Prismatic.sln",
+  "before_install" : ["before_install.ps1"],
+  "install" : ["install.ps1"],
+  "before_script" : ["before_script.ps1"],
+  "script" : ["script.ps1"],
+  "after_success" : ["after_success.ps1"],
+  "after_failure" : ["after_failure.ps1"],
+  "before_deploy" : ["before_deploy.ps1"],
+  "deploy" : ["deploy.ps1"],
+  "after_deploy" : ["after_deploy.ps1"],
+  "after_script" : ["after_script.ps1"]  
+}

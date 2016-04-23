@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prismatic.Build.Serialiser", "Prismatic.Build.Serialiser\Prismatic.Build.Serialiser.csproj", "{C0F921F1-5B17-4D39-94FC-786DB2603717}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prismatic.Build", "Prismatic.Build\Prismatic.Build.csproj", "{720531FD-432D-420A-92DD-CB0AC6B92934}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prismatic.Test", "Prismatic.Test\Prismatic.Test.csproj", "{03CA0BC7-D274-44C9-9279-D8E252EB572A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Builder", "0. Builder", "{524814BC-DBBB-40EF-AFD2-241E0F6080A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Core", "1. Core", "{0CFA3FB0-7070-466F-8450-30551FD017D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Test", "2. Test", "{1B1DF904-1A4B-46C9-9E61-2461CDFF13E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialiser", "Serialiser", "{319AF43B-C57C-45CE-A3A8-737D992B83A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prismatic.Build.Serialiser.Interface", "Prismatic.Build.Serialiser.Interface\Prismatic.Build.Serialiser.Interface.csproj", "{4090022D-E4C2-4586-A348-EDB944F22D46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildConfiguration", "BuildConfiguration", "{0119524C-A202-4AC9-855B-C463FB989BAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prismatic.Build.Configuration", "Prismatic.Build.Configuration\Prismatic.Build.Configuration.csproj", "{BC41A438-3894-49A7-9B82-F28F8E665A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prismatic.Build.Configuration.Interfaces", "Prismatic.Build.Configuration.Interfaces\Prismatic.Build.Configuration.Interfaces.csproj", "{3A82EC68-1AF5-45DF-84F0-D7347132DA4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0F921F1-5B17-4D39-94FC-786DB2603717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F921F1-5B17-4D39-94FC-786DB2603717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F921F1-5B17-4D39-94FC-786DB2603717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F921F1-5B17-4D39-94FC-786DB2603717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720531FD-432D-420A-92DD-CB0AC6B92934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720531FD-432D-420A-92DD-CB0AC6B92934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720531FD-432D-420A-92DD-CB0AC6B92934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720531FD-432D-420A-92DD-CB0AC6B92934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03CA0BC7-D274-44C9-9279-D8E252EB572A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03CA0BC7-D274-44C9-9279-D8E252EB572A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03CA0BC7-D274-44C9-9279-D8E252EB572A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03CA0BC7-D274-44C9-9279-D8E252EB572A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4090022D-E4C2-4586-A348-EDB944F22D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4090022D-E4C2-4586-A348-EDB944F22D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4090022D-E4C2-4586-A348-EDB944F22D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4090022D-E4C2-4586-A348-EDB944F22D46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC41A438-3894-49A7-9B82-F28F8E665A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC41A438-3894-49A7-9B82-F28F8E665A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC41A438-3894-49A7-9B82-F28F8E665A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC41A438-3894-49A7-9B82-F28F8E665A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A82EC68-1AF5-45DF-84F0-D7347132DA4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A82EC68-1AF5-45DF-84F0-D7347132DA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A82EC68-1AF5-45DF-84F0-D7347132DA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A82EC68-1AF5-45DF-84F0-D7347132DA4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{720531FD-432D-420A-92DD-CB0AC6B92934} = {524814BC-DBBB-40EF-AFD2-241E0F6080A1}
+		{319AF43B-C57C-45CE-A3A8-737D992B83A2} = {0CFA3FB0-7070-466F-8450-30551FD017D3}
+		{0119524C-A202-4AC9-855B-C463FB989BAE} = {0CFA3FB0-7070-466F-8450-30551FD017D3}
+		{03CA0BC7-D274-44C9-9279-D8E252EB572A} = {1B1DF904-1A4B-46C9-9E61-2461CDFF13E7}
+		{C0F921F1-5B17-4D39-94FC-786DB2603717} = {319AF43B-C57C-45CE-A3A8-737D992B83A2}
+		{4090022D-E4C2-4586-A348-EDB944F22D46} = {319AF43B-C57C-45CE-A3A8-737D992B83A2}
+		{BC41A438-3894-49A7-9B82-F28F8E665A6F} = {0119524C-A202-4AC9-855B-C463FB989BAE}
+		{3A82EC68-1AF5-45DF-84F0-D7347132DA4C} = {0119524C-A202-4AC9-855B-C463FB989BAE}
+	EndGlobalSection
+EndGlobal
