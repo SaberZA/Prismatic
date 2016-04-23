@@ -54,12 +54,16 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Runner\TestBuildRunner.cs" />
     <Compile Include="Serialiser\TestBuildSerialiser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="build.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Runner\testBeforeInstall.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="test.json">
@@ -77,6 +81,10 @@
     <ProjectReference Include="..\Prismatic.Build.Configuration\Prismatic.Build.Configuration.csproj">
       <Project>{BC41A438-3894-49A7-9B82-F28F8E665A6F}</Project>
       <Name>Prismatic.Build.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prismatic.Build.Runner\Prismatic.Build.Runner.csproj">
+      <Project>{E107E944-31BC-41B8-9565-CDD3A687BD7B}</Project>
+      <Name>Prismatic.Build.Runner</Name>
     </ProjectReference>
     <ProjectReference Include="..\Prismatic.Build.Serialiser.Interface\Prismatic.Build.Serialiser.Interface.csproj">
       <Project>{4090022D-E4C2-4586-A348-EDB944F22D46}</Project>
