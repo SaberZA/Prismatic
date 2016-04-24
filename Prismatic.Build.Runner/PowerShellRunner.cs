@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Text;
@@ -9,30 +10,34 @@ namespace Prismatic.Build.Runner
 {
     public class PowerShellRunner : IScriptRunner
     {
+        private readonly string _basePath;
+
+        public PowerShellRunner(string basePath = "")
+        {
+            _basePath = basePath;
+        }
+
         public ScriptResult RunScript(string script)
         {
             var scriptResult = new ScriptResult();
             using (var powerShellInstance = PowerShell.Create())
             {
-                powerShellInstance.AddScript("function Write-Host {}").Invoke();
+                powerShellInstance.AddScript("function echo([String] $message) { return $message }").Invoke();
+                powerShellInstance.AddScript("function Write-Host([String] $message) { return $message }").Invoke();
                 powerShellInstance.Commands.Clear();
 
-                powerShellInstance.AddScript("Write-Host \"Hello World!\";");
-                powerShellInstance.AddScript(script);
+                powerShellInstance.AddScript(Path.Combine(_basePath, script));
                 
-
-                powerShellInstance.AddScript("param($param1) $d = get-date; $s = 'test string value'; " +
-                "$d; $s; $param1;");
+                //powerShellInstance.AddScript("param($param1) $d = get-date; $s = 'test string value'; " +
+                //"$d; $s; $param1;");
 
                 // use "AddParameter" to add a single parameter to the last command/script on the pipeline.
-                powerShellInstance.AddParameter("param1", "parameter 1 value!");
+                //powerShellInstance.AddParameter("param1", "parameter 1 value!");
 
                 var psObjects = powerShellInstance.Invoke();
 
                 if (powerShellInstance.Streams.Error.Count > 0)
                 {
-                    // error records were written to the error stream.
-                    // do something with the items found.
                     throw new Exception(powerShellInstance.Streams.Error[0].Exception.Message);
                 }
 
@@ -43,6 +48,24 @@ namespace Prismatic.Build.Runner
             }
             
             return scriptResult;
+        }
+
+        public List<ScriptResult> RunScripts(IEnumerable<List<string>> scriptList)
+        {
+            var scriptResults = new List<ScriptResult>();
+            var scriptTaskLists = scriptList.ToList();
+            foreach (var scriptTaskList in scriptTaskLists)
+            {
+                //build pipeline task
+                var taskScriptResult = new ScriptResult();
+                foreach (var task in scriptTaskList)
+                {
+                    taskScriptResult = RunScript(task);
+                    taskScriptResult.ScriptOutput += Environment.NewLine;
+                }
+                scriptResults.Add(taskScriptResult);
+            }
+            return scriptResults;
         }
     }
 }

@@ -57,67 +57,13 @@ namespace Prismatic.Test.Serialiser
             Assert.AreEqual("Prismatic.sln", buildConfig.Solution);
         }
 
-        [Test]
-        public void IterateBuildConfig_GivenBuildConfigIterator_ShouldReturnDefaultOrderExecution()
-        {
-            //---------------Set up test pack-------------------
-            var serialiser = new PrismaticJsonSerialiser();
-            var document = GetFile(@"build.json");
-            var buildConfig = serialiser.Deserialise<DefaultBuildConfig>(document);
-            //---------------Assert Precondition----------------
-
-            //---------------Execute Test ----------------------
-            var defaultBuildIterator = new DefaultBuildIterator(buildConfig);
-
-            var buildItem = defaultBuildIterator.GetNext();
-            var executedList = new List<List<string>>();
-            do
-            {
-                executedList.Add(buildItem);
-
-                buildItem = defaultBuildIterator.GetNext();
-            } while (buildItem != null);
-
-            //---------------Test Result -----------------------
-            Assert.AreEqual(10, executedList.Count);
-            Assert.AreEqual("before_install.ps1", executedList[0][0]);
-            Assert.AreEqual("install.ps1", executedList[1][0]);
-            Assert.AreEqual("before_script.ps1", executedList[2][0]);
-            Assert.AreEqual("after_script.ps1", executedList[9][0]);
-        }
-
-        [Test]
-        public void GetEnumerator_GivenBuildConfigIterator_ShouldReturnDefaultOrderExecution()
-        {
-            //---------------Set up test pack-------------------
-            var serialiser = new PrismaticJsonSerialiser();
-            var document = GetFile(@"build.json");
-            var buildConfig = serialiser.Deserialise<DefaultBuildConfig>(document);
-            //---------------Assert Precondition----------------
-
-            //---------------Execute Test ----------------------
-            var defaultBuildIterator = new DefaultBuildIterator(buildConfig);
-            var executedList = new List<List<string>>();
-
-            foreach (var buildItem in defaultBuildIterator)
-            {
-                executedList.Add(buildItem);
-            }
-
-
-            //---------------Test Result -----------------------
-            Assert.AreEqual(10, executedList.Count);
-            Assert.AreEqual("before_install.ps1", executedList[0][0]);
-            Assert.AreEqual("install.ps1", executedList[1][0]);
-            Assert.AreEqual("before_script.ps1", executedList[2][0]);
-            Assert.AreEqual("after_script.ps1", executedList[9][0]);
-        }
-
         private static string GetFile(string filePath)
         {
             var stringReader = new StreamReader(filePath);
             return stringReader.ReadToEnd();
         }
+
+        
     }
 
     public class Order
