@@ -1,0 +1,17 @@
+{
+  "name": "prismatic-js",
+  "version": "1.0.0",
+  "description": "A JS tool to build .Net applications on multiple platforms",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Steven van der Merwe",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.5.2",
+    "mocha": "^2.4.5"
+  }
+}
