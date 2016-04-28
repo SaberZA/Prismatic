@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var path = require('path');
 var shell = require('shelljs');
 var runSequence = require('gulp-run-sequence');
+var async = require('async');
 
 var solution = 'Prismatic.sln';
 var basePath = '..';
@@ -13,35 +14,34 @@ var buildTool = 'msbuild';
 
 var isWin = /^win/.test(process.platform);
 if (!isWin) {
-  buildTool = 'xbuild';
+    buildTool = 'xbuild';
 }
 
-var buildCommand = buildTool +' '+ solutionPath + ' ' + buildConfig;
-var cleanCommand = buildTool +' '+ solutionPath + ' ' + cleanConfig;
+var buildCommand = buildTool + ' ' + solutionPath + ' ' + buildConfig;
+// buildCommand = 'echo buildTask';
+var cleanCommand = buildTool + ' ' + solutionPath + ' ' + cleanConfig;
 
 gulp.task('build', ['buildSolution']);
 
 gulp.task('default', function() {
-  console.log('Hello World!');
+    console.log('Hello World!');
 });
 
-gulp.task('buildSolution', ['cleanSolution'], function() {  
-  shell.exec(buildCommand, function(code, stdout, stderr) {
-    
-    if (code > 0) {
-      console.log('Exit code:', code);
-      console.log('Program output:', stdout);
-      console.log('Program stderr:', stderr);  
-    }
-  });
+gulp.task('buildSolution', function() {
+    async.series([
+        function() {
+            shell.exec(buildCommand, {
+                async: false
+            });
+        },
+        function() {
+            console.log('after msbuild...');
+        }
+    ]);
 });
 
-gulp.task('cleanSolution', function() {  
-  shell.exec(cleanCommand, function(code, stdout, stderr) {
-    if (code > 0) {
-      console.log('Exit code:', code);
-      console.log('Program output:', stdout);    
-      console.log('Program stderr:', stderr);  
-    }    
-  });
+gulp.task('cleanSolution', function() {
+    shell.exec(cleanCommand, {
+        async: false
+    });
 });
