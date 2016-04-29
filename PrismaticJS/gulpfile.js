@@ -22,7 +22,7 @@ var buildCommand = buildTool + ' ' + solutionPath + ' ' + buildConfig;
 // buildCommand = 'echo buildTask';
 var cleanCommand = buildTool + ' ' + solutionPath + ' ' + cleanConfig;
 
-gulp.task('build', ['buildSolution', 'cleanSolution']);
+gulp.task('build', ['buildSolution']);
 
 gulp.task('default', function() {
     console.log('Hello World!');
@@ -30,11 +30,8 @@ gulp.task('default', function() {
 
 gulp.task('buildSolution', function() {
   return gulp.src(solutionPath)
-        .pipe(msbuild());
-});
-
-gulp.task('cleanSolution', function() {
-    shell.exec(cleanCommand, {
-        async: false
-    });
+        .pipe(msbuild({
+    			targets: ['Clean', 'Build']
+    			})
+        );
 });
