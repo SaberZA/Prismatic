@@ -28,10 +28,18 @@ gulp.task('default', function() {
     console.log('Hello World!');
 });
 
-gulp.task('buildSolution', function() {
+gulp.task('buildSolution',['clean'], function() {
   return gulp.src(solutionPath)
         .pipe(msbuild({
-    			targets: ['Clean', 'Build']
+    			targets: ['Build']
     			})
+        );
+});
+
+gulp.task('clean', function() {
+  return gulp.src(solutionPath)
+        .pipe(msbuild({
+            targets: ['Clean']
+        })
         );
 });
